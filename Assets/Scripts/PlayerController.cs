@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private float speed = 10.0f;
     private Rigidbody playerRb;
     private float zBound = 9;
+    private float zbound = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour
         if (transform.position.z > zBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
+        }
+
+        if (transform.position.z > zbound)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, zbound);
         }
     }
 
