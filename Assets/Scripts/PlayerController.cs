@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 10.0f;
+    private float speed = 8.0f;
     private Rigidbody playerRb;
     private float zBound = 9;
     private float zbound = 3;
@@ -52,5 +52,6 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        
     }
 }
