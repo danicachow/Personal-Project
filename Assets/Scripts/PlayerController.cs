@@ -45,13 +45,4 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player has collided with enemy.");
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Powerup"))
-        {
-            Destroy(other.gameObject);
-        }
-        
-    }
 }
