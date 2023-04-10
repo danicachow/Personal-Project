@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] enemies;
+    public GameObject[] enemyPrefabs;
 
-    private float zEnemySpawn = 12.0f;
-    private float xSpawnRange = 16.0f;
-    private float ySpawn = 0.75f;
+    private float spawnPosZ = 12;
+    private float spawnRangeX = 16;
+    private float startDelay = 2;
+    private float spawnInterval = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemy();
+        InvokeRepeating("SpawnRandomEnemy", startDelay, spawnInterval);
     }
 
     // Update is called once per frame
@@ -22,13 +23,12 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    void SpawnEnemy()
+    void SpawnRandomEnemy()
     {
-        float randomX = Random.Range(-xSpawnRange, xSpawnRange);
-        int randomIndex = Random.Range(0, enemies.Length);
+        //float randomX = Random.Range(-xSpawnRange, xSpawnRange);
+        int enemyIndex = Random.Range(0, enemyPrefabs.Length);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
 
-        Vector3 spawnPos = new Vector3(randomX, ySpawn, zEnemySpawn);
-
-        Instantiate(enemies[randomIndex], spawnPos, enemies[randomIndex].gameObject.transform.rotation);
+        Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
     }
 }
