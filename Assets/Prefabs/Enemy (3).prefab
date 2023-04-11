@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1588817051166809262}
   - component: {fileID: 1588817051166809253}
   - component: {fileID: 1588817051166809258}
+  - component: {fileID: -2538185617100773106}
   m_Layer: 0
   m_Name: Enemy (3)
   m_TagString: Enemy
@@ -128,3 +129,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+--- !u!114 &-2538185617100773106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588817051166809263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d1fe5a7e7d648c5b60a0f6c57118eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
