@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private float zBound = 9;
     private float zbound = 3;
     public GameObject projectilePrefab;
+    public float MaxSpeed = 10f;
+    public float BrakingForce = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,14 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
 
         playerRb.AddForce(Vector3.right * speed * horizontalInput);
+
+        //don't allow the player to go through the walls
+        playerRb.velocity = Vector3.ClampMagnitude(playerRb.velocity, MaxSpeed);
+
+        if (horizontalInput == 0)
+        {
+            playerRb.AddForce(-1 * playerRb.velocity * BrakingForce);
+        }
 
         if (transform.position.z < -zBound)
         {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
+    public List<string> MutualDestructionTags;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,13 @@ public class DetectCollisions : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
+        
+        
+        if(MutualDestructionTags.Contains(other.gameObject.tag))
+        {
+            Debug.Log($"Destroying object: {other.gameObject.name} from object {gameObject.name}");
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
     }
 }
